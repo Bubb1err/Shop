@@ -1,0 +1,32 @@
+﻿@using CatalogAPI
+@model Item
+
+<div class="card-content">
+    <div class="image-block">
+        <img src="@Model.ImageUrl" alt="Product image" />
+    </div>
+
+    <div class="card-description">
+        <div>
+            <h2>@Model.Title</h2>
+            <p>@Model.Descritpion</p>
+            <span>$@Model.Price</span>
+        </div>
+        <button>Add to cart</button>
+
+    </div>
+</div>
+
+<style>
+    .image-block {
+        width : 50%;
+    }
+
+
+    .card-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+</style>

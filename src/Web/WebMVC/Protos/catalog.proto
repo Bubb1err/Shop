@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CatalogAPI";
+
+package catalog;
+
+service Catalog {
+    rpc GetItems(GetItemsRequest) returns (GetItemsResponse);
+    rpc GetItemById(GetItemByIdRequest) returns (GetItemByIdResponse);
+}
+
+message GetItemsRequest { }
+
+message GetItemsResponse {
+  repeated Item items = 1;
+}
+
+message GetItemByIdRequest {
+    string id = 1;
+}
+
+message GetItemByIdResponse {
+    Item item = 1;
+}
+
+message Item {
+    string id = 1;
+    string title = 2;
+    string descritpion = 3;
+    double price = 4;
+    string imageUrl = 5;
+}

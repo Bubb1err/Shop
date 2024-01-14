@@ -1,0 +1,22 @@
+﻿@using CatalogAPI
+@model IEnumerable<Item>
+
+@{
+  ViewData["Title"] = "Catalog";
+}
+
+<div class="flex flex-row flex-wrap gap-4">
+  @foreach (var item in Model)
+  {
+    <div class="flex flex-col font-light gap-2">
+      <div class="w-[150px] h-[150px]">
+        <img class="w-full h-full" src="@item.ImageUrl" />
+      </div>
+      <div class="flex flex-col">
+        <div class="text-xl font-bold">@item.Title</div>
+        <div>@item.Descritpion</div>
+      </div>
+      <a class="text-white px-4 py-2 bg-green-300 duration-300 hover:scale-105 active:opacity-50" asp-controller="Catalog" asp-action="GetCatalogItemById" asp-route-id="@item.Id">@("$")@item.Price</a>
+    </div>
+  }
+</div>
